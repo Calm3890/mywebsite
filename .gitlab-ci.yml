@@ -4,15 +4,11 @@ services:
   - docker:dind
 
 stages:
-  - build
   - deploy
-
-build:
-  stage: build
-  script:
-   - docker build -t newrepo .
 
 deploy:
   stage: deploy
   script:
+   - docker build -t newrepo .
    - docker run -d -p 80:80 newrepo test
+
