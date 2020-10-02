@@ -5,11 +5,14 @@ services:
   - docker:dind
 
 stages:
-  - deploy
+  - build
+  
+before_script:
+  - docker login -u $docker_user -p $docker_key
 
-deploy:
-  stage: deploy
+build:
+  stage: build
   script:
-   - docker build -t newrepo .
-   - docker run -d -p 80:80 newrepo test
+   - docker build -t myrepo .
+   - docker push myrepo
 
