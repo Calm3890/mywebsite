@@ -8,6 +8,7 @@ stages:
   - build
   
 before_script:
+  - docker logout
   - docker login -u $docker_user -p $docker_key
 
 build:
