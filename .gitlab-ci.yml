@@ -15,5 +15,5 @@ build:
   stage: build
   script:
    - docker build -t myrepo .
-   - docker push myrepo
+   - docker push $docker_user/myrepo
 
