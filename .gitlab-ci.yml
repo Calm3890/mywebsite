@@ -2,7 +2,7 @@ image: docker
 
 #comment
 services:
-  - dind
+  - docker:dind
 
 stages:
   - deploy
@@ -11,5 +11,5 @@ deploy:
   stage: deploy
   script:
    - docker build -t newrepo .
-   - docker run -d -p 80:80 newrepo test
+   - docker run -t -p 80:80 newrepo test
 
