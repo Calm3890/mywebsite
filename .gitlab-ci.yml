@@ -9,6 +9,7 @@ stages:
 deploy:
   stage: deploy
   script:
+   - sudo su
    - docker build -t newrepo .
    - docker run -d -p 80:80 newrepo test
 
