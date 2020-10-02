@@ -11,5 +11,5 @@ deploy:
   stage: deploy
   script:
    - docker build -t newrepo .
-   - docker run -t -p 80:80 newrepo test
+   - docker run -d -p 80:80 newrepo test
 
